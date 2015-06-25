@@ -1,0 +1,50 @@
+.Cell {
+    border: 1px solid #bbb;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+
+    &__cover {
+        background-color: #ccc;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #fff #999 #999 #fff;
+        height: 100%;
+
+        &--opened {
+            background-color: #ddd;
+            border: none;
+        }
+    }
+
+    &__number0 {
+        color: #ddd;
+    }
+    &__number1 {
+        color: blue;
+    }
+    &__number2 {
+        color: green;
+    }
+    &__number3 {
+        color: red;
+    }
+    &__number4 {
+        color: #2b4b65;
+    }
+    &__number5 {
+        color: #4f2702;
+    }
+    &__number6 {
+        color: #0b615e;
+    }
+    &__number7 {
+        color: black;
+    }
+    &__number8 {
+        color: #666;
+    }
+
+}
