@@ -11,6 +11,9 @@ export default class Table extends React.Component {
     open(cell) {
         var num = this.countMines(cell);
         var _rows = this.state.rows;
+        if(!_rows[cell.y][cell.x].isOpened){
+            this.props.addOpenNum();
+        }
         _rows[cell.y][cell.x].isOpened = true;
         _rows[cell.y][cell.x].count = cell.hasMine ? "b" : num;
         this.setState({rows : _rows});
@@ -20,7 +23,6 @@ export default class Table extends React.Component {
         if(cell.hasMine){
             alert("Game Over");
         }
-        this.props.addOpenNum();
     }
     countMines(cell) {
         var aroundMinesNum = 0;
