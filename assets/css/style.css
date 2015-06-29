@@ -82,8 +82,14 @@ embed {
   display: block; }
 
 /* End hide from IE-mac */
+.Wrapper__title {
+  font-size: 200%;
+  text-align: center;
+  padding: 50px 0; }
+
 .Table {
-  border: 1px solid #ccc; }
+  border: 1px solid #ccc;
+  margin: 0 auto; }
 
 .Cell {
   border: 1px solid #bbb;

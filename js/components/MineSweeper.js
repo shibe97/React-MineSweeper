@@ -5,11 +5,28 @@ export default class MineSweeper extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            minesNum : 0,
-            flagsNum : 0,
-            minesTable : this.createTable()
+            mineNum : 15,
+            flagNum : 0,
+            mineTable : this.createTable()
         };
 
+    }
+    componentWillMount() {
+        this.setMine();
+    }
+    setMine(){
+        var mineTable = this.state.mineTable;
+        for(var i = 0; i < this.state.mineNum; i++){
+            var cell = mineTable[Math.floor(Math.random()*10)][Math.floor(Math.random()*10)];
+            if(cell.hasMine){
+                i--;
+            } else {
+                cell.hasMine = true;
+            }
+        }
+        this.setState({
+            mineTable: mineTable
+        });
     }
     createTable() {
         var mineTable = [];
@@ -21,7 +38,7 @@ export default class MineSweeper extends React.Component {
                     y : row,
                     count : 0,
                     isOpened : false,
-                    hasMine : Math.random() > 0.85 ? true : false
+                    hasMine : false
                 });
             }
         }
@@ -29,7 +46,7 @@ export default class MineSweeper extends React.Component {
     }
     render() {
         return (
-            <Table rows={this.state.minesTable} />
+            <Table rows={this.state.mineTable} minesNum={this.state.mineNum} />
         );
     }
 }

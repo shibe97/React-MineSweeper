@@ -3,5 +3,5 @@ import MineSweeper from './components/MineSweeper.js';
 
 React.render(
   <MineSweeper />,
-  document.getElementById('container')
+  document.getElementById('MineSweeper')
 );

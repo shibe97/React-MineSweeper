@@ -5,7 +5,8 @@ export default class Table extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            rows : this.props.rows
+            rows : this.props.rows,
+            minesNum : this.props.minesNum
         };
     }
     open(cell) {
@@ -14,10 +15,13 @@ export default class Table extends React.Component {
         _rows[cell.y][cell.x].isOpened = true;
         _rows[cell.y][cell.x].count = cell.hasMine ? "b" : num;
         this.setState({rows : _rows});
-        if(!this.state.hasMine && num === 0){
+        if(!cell.hasMine && num === 0){
             this.openAround(cell);
         }
-        //this.judge();
+        if(cell.hasMine){
+            alert("Game Over");
+        }
+        this.judge();
     }
     countMines(cell) {
         var aroundMinesNum = 0;
@@ -39,7 +43,9 @@ export default class Table extends React.Component {
                 }
             }
         }
-
+    }
+    judge() {
+        console.log(this.state.minesNum);
     }
     render() {
         var Rows = this.state.rows.map((row, index) => {
