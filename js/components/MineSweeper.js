@@ -36,7 +36,7 @@ export default class MineSweeper extends React.Component {
     }
     addOpenNum() {
         this.setState({
-            openNum : this.state.openNum + 1
+            openNum : ++ this.state.openNum
         });
     }
     createTable() {
@@ -57,9 +57,9 @@ export default class MineSweeper extends React.Component {
     }
     render() {
         return (
-            <div>
-            <p>{this.state.openNum}</p>
-            <Table rows={this.state.mineTable} judge={this.judge.bind(this)} addOpenNum={this.addOpenNum.bind(this)}/>
+            <div className="MineSweeper">
+                <p className="MineSweeper__openNum">open : {this.state.openNum}</p>
+                <Table rows={this.state.mineTable} judge={this.judge.bind(this)} addOpenNum={this.addOpenNum.bind(this)}/>
             </div>
         );
     }
