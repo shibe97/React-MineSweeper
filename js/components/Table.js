@@ -21,7 +21,6 @@ export default class Table extends React.Component {
             alert("Game Over");
         }
         this.props.addOpenNum();
-        this.props.judge();
     }
     countMines(cell) {
         var aroundMinesNum = 0;

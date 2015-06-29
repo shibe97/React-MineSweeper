@@ -12,6 +12,9 @@ export default class MineSweeper extends React.Component {
         };
         this.setMine();
     }
+    componentWillUpdate() {
+        this.judge();
+    }
     judge() {
         if(this.state.mineNum + this.state.openNum >= 100){
             alert("Congratulations!!");
@@ -32,7 +35,9 @@ export default class MineSweeper extends React.Component {
         });
     }
     addOpenNum() {
-        this.state.openNum ++;
+        this.setState({
+            openNum : this.state.openNum + 1
+        });
     }
     createTable() {
         var mineTable = [];
@@ -52,7 +57,10 @@ export default class MineSweeper extends React.Component {
     }
     render() {
         return (
+            <div>
+            <p>{this.state.openNum}</p>
             <Table rows={this.state.mineTable} judge={this.judge.bind(this)} addOpenNum={this.addOpenNum.bind(this)}/>
+            </div>
         );
     }
 }
