@@ -16,7 +16,7 @@ export default class Row extends React.Component {
     render(){
         var Cells = this.state.cells.map((cell, index) => {
             return(
-                <Cell cell={cell} open={this.props.open} countMines={this.props.countMines} openAround={this.props.openAround} />
+                <Cell cell={cell} open={this.props.open} mark={this.props.mark} countMines={this.props.countMines} openAround={this.props.openAround} />
             );
         });
         return (

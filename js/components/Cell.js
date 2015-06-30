@@ -5,18 +5,24 @@ export default class Cell extends React.Component {
         super(props);
         this.state = {
             hasMine : props.cell.hasMine,
+            hasFlag : props.cell.hasFlag,
             isOpened : props.cell.isOpened,
-            count : 0,
+            count : 0
         };
     }
     componentWillReceiveProps(nextProps) {
         this.setState({
             isOpened : nextProps.cell.isOpened,
+            hasFlag : nextProps.cell.hasFlag,
             count : nextProps.cell.count
         });
     }
     open() {
         this.props.open(this.props.cell);
+    }
+    mark(e) {
+        e.preventDefault();
+        this.props.mark(this.props.cell);
     }
     judge() {
         if(this.state.hasMine){
@@ -32,6 +38,12 @@ export default class Cell extends React.Component {
                         <span className={"Cell__number"+_this.state.count}>{_this.state.count}</span>
                     </div>            
                 );
+            } else if(_this.state.hasFlag){
+                return (
+                    <div className="Cell__cover Cell__cover--opened">
+                        <span>f</span>
+                    </div>            
+                );
             } else {
                 return (
                     <div className="Cell__cover"></div>            
@@ -39,7 +51,7 @@ export default class Cell extends React.Component {
             }
         }();
         return (
-            <td className="Cell" onClick={this.open.bind(this)}>
+            <td className="Cell" onClick={this.open.bind(this)} onContextMenu={this.mark.bind(this)}>
                 {cell}
             </td>
         );

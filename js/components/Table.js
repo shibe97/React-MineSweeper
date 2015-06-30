@@ -24,6 +24,11 @@ export default class Table extends React.Component {
             alert("Game Over");
         }
     }
+    mark(cell) {
+        var _rows = this.state.rows;
+        _rows[cell.y][cell.x].hasFlag = !_rows[cell.y][cell.x].hasFlag;
+        this.setState({rows : _rows});
+    }
     countMines(cell) {
         var aroundMinesNum = 0;
         for(var row = -1; row <= 1; row++){
@@ -48,7 +53,7 @@ export default class Table extends React.Component {
     render() {
         var Rows = this.state.rows.map((row, index) => {
             return(
-                <Row cells={row} open={this.open.bind(this)} countMines={this.countMines.bind(this)} openAround={this.openAround.bind(this)} />
+                <Row cells={row} open={this.open.bind(this)} mark={this.mark.bind(this)} countMines={this.countMines.bind(this)} openAround={this.openAround.bind(this)} />
             );
         });
         return(

@@ -49,7 +49,8 @@ export default class MineSweeper extends React.Component {
                     y : row,
                     count : 0,
                     isOpened : false,
-                    hasMine : false
+                    hasMine : false,
+                    hasFlag : false
                 });
             }
         }
