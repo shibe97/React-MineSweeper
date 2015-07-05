@@ -88,6 +88,15 @@ embed {
   padding: 50px 0;
   font-family: 'Antic Slab', serif; }
 
+.Wrapper__subTitle {
+  font-size: 200%;
+  text-align: center;
+  padding: 50px 0 30px;
+  font-family: 'Antic Slab', serif; }
+
+.Wrapper__howToPlay {
+  text-align: center; }
+
 .MineSweeper {
   position: relative;
   background-color: #eee;
@@ -101,7 +110,8 @@ embed {
   .MineSweeper.hard {
     width: 660px; }
   .MineSweeper__level {
-    text-align: center; }
+    text-align: center;
+    margin: 10px; }
     .MineSweeper__level label {
       margin: 0 10px; }
   .MineSweeper__openNum {
