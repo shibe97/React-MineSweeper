@@ -115,7 +115,7 @@ embed {
     height: 100%; }
     .Cell__cover--opened {
       background-color: #ddd;
-      border: none; }
+      border: 1px solid #ddd; }
   .Cell__number0 {
     color: #ddd; }
   .Cell__number1 {
