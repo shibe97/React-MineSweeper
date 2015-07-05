@@ -1,4 +1,20 @@
 .MineSweeper {
+    position: relative;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    padding: 45px 10px 10px;
+    margin: 0 auto;
+
+    &.easy {
+        width: 310px;
+    }
+    &.normal {
+        width: 490px;
+    }
+    &.hard {
+        width: 660px;
+    }
+
     &__level {
         text-align: center;
 
@@ -7,7 +23,17 @@
         }
     }
     &__openNum {
-        text-align: center;
-        padding: 10px 0;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background: url("../images/icn_flag_01.png") no-repeat left center;
+        padding-left: 30px;
+    }
+    &__time {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        background: url("../images/icn_clock_01.png") no-repeat left center;
+        padding-left: 30px;
     }
 }

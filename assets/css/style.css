@@ -87,14 +87,34 @@ embed {
   text-align: center;
   padding: 50px 0; }
 
-.MineSweeper__level {
-  text-align: center; }
-  .MineSweeper__level label {
-    margin: 0 10px; }
-
-.MineSweeper__openNum {
-  text-align: center;
-  padding: 10px 0; }
+.MineSweeper {
+  position: relative;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  padding: 45px 10px 10px;
+  margin: 0 auto; }
+  .MineSweeper.easy {
+    width: 310px; }
+  .MineSweeper.normal {
+    width: 490px; }
+  .MineSweeper.hard {
+    width: 660px; }
+  .MineSweeper__level {
+    text-align: center; }
+    .MineSweeper__level label {
+      margin: 0 10px; }
+  .MineSweeper__openNum {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: url("../images/icn_flag_01.png") no-repeat left center;
+    padding-left: 30px; }
+  .MineSweeper__time {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: url("../images/icn_clock_01.png") no-repeat left center;
+    padding-left: 30px; }
 
 .Table {
   border: 1px solid #ccc;
@@ -104,7 +124,7 @@ embed {
   border: 1px solid #bbb;
   font-size: 20px;
   width: 30px;
-  height: 30px;
+  height: 28px;
   text-align: center;
   vertical-align: middle; }
   .Cell__cover {
