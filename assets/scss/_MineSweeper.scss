@@ -1,6 +1,13 @@
 .MineSweeper {
+    &__level {
+        text-align: center;
 
+        label {
+            margin: 0 10px;
+        }
+    }
     &__openNum {
         text-align: center;
+        padding: 10px 0;
     }
 }

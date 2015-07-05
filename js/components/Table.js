@@ -5,8 +5,44 @@ export default class Table extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            rows : this.props.rows
+            rows : this.createTable(props)
         };
+    }
+    componentWillReceiveProps(nextProps) {
+        if(this.props.rowNum !== nextProps.rowNum){
+            this.setState({
+                rows : []
+            });
+            this.setState({
+                rows : this.createTable(nextProps)
+            });
+        }
+
+    }
+    createTable(props) {
+        var mineTable = [];
+        for(var row = 0; row < props.rowNum; row++){
+            mineTable.push([]);
+            for(var col = 0; col < props.rowNum; col++){
+                mineTable[row].push({
+                    x : col,
+                    y : row,
+                    count : 0,
+                    isOpened : false,
+                    hasMine : false,
+                    hasFlag : false
+                });
+            }
+        }
+        for(var i = 0; i < props.mineNum; i++){
+            var cell = mineTable[Math.floor(Math.random()*props.rowNum)][Math.floor(Math.random()*props.rowNum)];
+            if(cell.hasMine){
+                i--;
+            } else {
+                cell.hasMine = true;
+            }
+        }
+        return mineTable;
     }
     open(cell) {
         var num = this.countMines(cell);
@@ -33,7 +69,7 @@ export default class Table extends React.Component {
         var aroundMinesNum = 0;
         for(var row = -1; row <= 1; row++){
             for(var col = -1; col <= 1; col++){
-                if(cell.y-0 + row >= 0 && cell.x-0 + col >= 0 && cell.y-0 + row < this.props.rows.length && cell.x-0 + col < this.props.rows[0].length && this.props.rows[cell.y-0 + row][cell.x-0 + col].hasMine && !(row === 0 && col === 0)){
+                if(cell.y-0 + row >= 0 && cell.x-0 + col >= 0 && cell.y-0 + row < this.state.rows.length && cell.x-0 + col < this.state.rows[0].length && this.state.rows[cell.y-0 + row][cell.x-0 + col].hasMine && !(row === 0 && col === 0)){
                     aroundMinesNum ++;
                 }
             }
@@ -44,7 +80,7 @@ export default class Table extends React.Component {
         var _rows = this.state.rows;
         for(var row = -1; row <= 1; row++){
             for(var col = -1; col <= 1; col++){
-                if(cell.y-0 + row >= 0 && cell.x-0 + col >= 0 && cell.y-0 + row < this.props.rows.length && cell.x-0 + col < this.props.rows[0].length && !this.props.rows[cell.y-0 + row][cell.x-0 + col].hasMine && !this.props.rows[cell.y-0 + row][cell.x-0 + col].isOpened){
+                if(cell.y-0 + row >= 0 && cell.x-0 + col >= 0 && cell.y-0 + row < this.state.rows.length && cell.x-0 + col < this.state.rows[0].length && !this.state.rows[cell.y-0 + row][cell.x-0 + col].hasMine && !this.state.rows[cell.y-0 + row][cell.x-0 + col].isOpened){
                    this.open(_rows[cell.y-0 + row][cell.x-0 + col]);
                 }
             }
@@ -58,7 +94,9 @@ export default class Table extends React.Component {
         });
         return(
             <table className="Table">
-                {Rows}
+                <tbody>
+                    {Rows}
+                </tbody>
             </table>
         );
     }

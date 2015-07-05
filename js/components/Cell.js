@@ -24,11 +24,6 @@ export default class Cell extends React.Component {
         e.preventDefault();
         this.props.mark(this.props.cell);
     }
-    judge() {
-        if(this.state.hasMine){
-            alert("Game Over");
-        }
-    }
     render() {
         var _this = this;
         var cell = () => {

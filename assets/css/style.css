@@ -87,8 +87,14 @@ embed {
   text-align: center;
   padding: 50px 0; }
 
-.MineSweeper__openNum {
+.MineSweeper__level {
   text-align: center; }
+  .MineSweeper__level label {
+    margin: 0 10px; }
+
+.MineSweeper__openNum {
+  text-align: center;
+  padding: 10px 0; }
 
 .Table {
   border: 1px solid #ccc;
