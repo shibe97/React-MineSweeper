@@ -134,3 +134,15 @@ embed {
     color: black; }
   .Cell__number8 {
     color: #666; }
+  .Cell__flag {
+    background: url("../images/icn_flag_01.png") no-repeat center center;
+    text-indent: -9999px;
+    overflow: hidden;
+    display: block;
+    height: 100%; }
+  .Cell__bomb {
+    background: url("../images/icn_bomb_01.png") no-repeat center center;
+    text-indent: -9999px;
+    overflow: hidden;
+    display: block;
+    height: 100%; }

@@ -46,5 +46,19 @@
     &__number8 {
         color: #666;
     }
+    &__flag {
+        background: url("../images/icn_flag_01.png") no-repeat center center;
+        text-indent: -9999px;
+        overflow: hidden;
+        display: block;
+        height: 100%;
+    }
+    &__bomb {
+        background: url("../images/icn_bomb_01.png") no-repeat center center;
+        text-indent: -9999px;
+        overflow: hidden;
+        display: block;
+        height: 100%;
+    }
 
 }

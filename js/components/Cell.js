@@ -28,15 +28,23 @@ export default class Cell extends React.Component {
         var _this = this;
         var cell = () => {
             if(_this.state.isOpened){
+                if(_this.state.hasMine){
                 return (
                     <div className="Cell__cover Cell__cover--opened">
-                        <span className={"Cell__number"+_this.state.count}>{_this.state.count}</span>
+                        <span className="Cell__bomb">b</span>
                     </div>            
                 );
+                } else {
+                    return (
+                        <div className="Cell__cover Cell__cover--opened">
+                            <span className={"Cell__number"+_this.state.count}>{_this.state.count}</span>
+                        </div>            
+                    );
+                }
             } else if(_this.state.hasFlag){
                 return (
                     <div className="Cell__cover Cell__cover--opened">
-                        <span>f</span>
+                        <span className="Cell__flag">f</span>
                     </div>            
                 );
             } else {
