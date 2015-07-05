@@ -83,9 +83,10 @@ embed {
 
 /* End hide from IE-mac */
 .Wrapper__title {
-  font-size: 200%;
+  font-size: 300%;
   text-align: center;
-  padding: 50px 0; }
+  padding: 50px 0;
+  font-family: 'Antic Slab', serif; }
 
 .MineSweeper {
   position: relative;
