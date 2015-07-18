@@ -56,13 +56,13 @@ export default class MineSweeper extends React.Component {
         });
     }
     setEasy() {
-        this.setState({level: "easy", mineNum: 10, rowNum: 10, openNum: 0, flagNum: 0});
+        this.setState({level: "easy", mineNum: 10, rowNum: 10, openNum: 0, flagNum: 0, time: 0});
     }
     setNormal() {
-        this.setState({level: "normal", mineNum: 40, rowNum: 16, openNum: 0, flagNum: 0});
+        this.setState({level: "normal", mineNum: 40, rowNum: 16, openNum: 0, flagNum: 0, time: 0});
     }
     setHard() {
-        this.setState({level: "hard", mineNum: 100, rowNum: 22, openNum: 0, flagNum: 0});
+        this.setState({level: "hard", mineNum: 100, rowNum: 22, openNum: 0, flagNum: 0, time: 0});
     }
     render() {
         return (

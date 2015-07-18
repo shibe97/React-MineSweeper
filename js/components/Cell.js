@@ -13,6 +13,7 @@ export default class Cell extends React.Component {
     componentWillReceiveProps(nextProps) {
         this.setState({
             isOpened : nextProps.cell.isOpened,
+            hasMine : nextProps.cell.hasMine,
             hasFlag : nextProps.cell.hasFlag,
             count : nextProps.cell.count
         });
@@ -29,11 +30,11 @@ export default class Cell extends React.Component {
         var cell = () => {
             if(_this.state.isOpened){
                 if(_this.state.hasMine){
-                return (
-                    <div className="Cell__cover Cell__cover--opened">
-                        <span className="Cell__bomb">b</span>
-                    </div>            
-                );
+                    return (
+                        <div className="Cell__cover Cell__cover--opened">
+                            <span className="Cell__bomb">b</span>
+                        </div>            
+                    );
                 } else {
                     return (
                         <div className="Cell__cover Cell__cover--opened">

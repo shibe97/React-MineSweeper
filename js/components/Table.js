@@ -11,9 +11,6 @@ export default class Table extends React.Component {
     componentWillReceiveProps(nextProps) {
         if(this.props.rowNum !== nextProps.rowNum){
             this.setState({
-                rows : []
-            });
-            this.setState({
                 rows : this.createTable(nextProps)
             });
         }
