@@ -54,7 +54,7 @@ export default class Table extends React.Component {
             this.openAround(cell);
         }
         if(cell.hasMine){
-            alert("Game Over");
+            this.props.gameOver();
         }
     }
     mark(cell) {

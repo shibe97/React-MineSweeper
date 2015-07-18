@@ -10,11 +10,14 @@ export default class MineSweeper extends React.Component {
             rowNum : 10,
             flagNum : 0,
             openNum : 0,
-            time : 0
+            time : 0,
+            status : 0   // 0:normal, 1:clear, 2:gameover
         };
     }
     componentWillUpdate() {
-        this.judge();
+        if(this.state.status === 0){
+            this.judge();
+        }
     }
     componentWillMount() {
         this.intervals = [];
@@ -29,12 +32,19 @@ export default class MineSweeper extends React.Component {
         this.intervals.push(setInterval.apply(null, arguments));
     }
     tick() {
-        this.setState({time: this.state.time + 1});
+        if(this.state.openNum > 0 && this.state.status === 0){
+            this.setState({time: this.state.time + 1});
+        }
     }
     judge() {
         if(this.state.mineNum + this.state.openNum >= this.state.rowNum * this.state.rowNum){
+            this.setState({status: 1});
             alert("Congratulations!!");
         }
+    }
+    gameOver() {
+        this.setState({status: 2});
+        alert("Game Over!");
     }
     setMine(){
         var mineTable = this.state.mineTable;
@@ -75,7 +85,7 @@ export default class MineSweeper extends React.Component {
                 <div className={"MineSweeper " + this.state.level}>
                     <span className="MineSweeper__openNum"> {this.state.openNum}</span>
                     <span className="MineSweeper__time"> {this.state.time}</span>
-                    <Table mineNum={this.state.mineNum} rowNum={this.state.rowNum} judge={this.judge.bind(this)} addOpenNum={this.addOpenNum.bind(this)}/>
+                    <Table mineNum={this.state.mineNum} rowNum={this.state.rowNum} gameOver={this.gameOver.bind(this)} addOpenNum={this.addOpenNum.bind(this)}/>
                 </div>
             </div>
         );
