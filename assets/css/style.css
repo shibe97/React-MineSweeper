@@ -95,7 +95,9 @@ embed {
   font-family: 'Antic Slab', serif; }
 
 .Wrapper__howToPlay {
-  text-align: center; }
+  width: 700px;
+  line-height: 2;
+  margin: 0 auto 50px; }
 
 .MineSweeper {
   position: relative;
