@@ -40,4 +40,30 @@
         background: url("../images/icn_clock_01.png") no-repeat left center;
         padding-left: 30px;
     }
+    &__face {
+        position: absolute;
+        top: 4px;
+        left: 50%;
+        margin-left: -17px;
+        width: 34px;
+        height: 34px;
+        border: 1px solid #bbb;
+
+        .button {
+            border-width: 1px;
+            border-style: solid;
+            border-color: #fff #999 #999 #fff;
+            height: 100%;
+            display: block;
+        }
+        .normal {
+            background: url("../images/icn_face_01.png") no-repeat center center, #ccc;
+        }
+        .clear {
+            background: url("../images/icn_face_02.png") no-repeat center center, #ccc;
+        }
+        .gameover {
+            background: url("../images/icn_face_03.png") no-repeat center center, #ccc;
+        }
+    }
 }

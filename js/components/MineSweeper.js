@@ -11,11 +11,11 @@ export default class MineSweeper extends React.Component {
             flagNum : 0,
             openNum : 0,
             time : 0,
-            status : 0   // 0:normal, 1:clear, 2:gameover
+            status : "playing"   // playing, clear, gameover
         };
     }
     componentWillUpdate() {
-        if(this.state.status === 0){
+        if(this.state.status === "playing"){
             this.judge();
         }
     }
@@ -32,19 +32,17 @@ export default class MineSweeper extends React.Component {
         this.intervals.push(setInterval.apply(null, arguments));
     }
     tick() {
-        if(this.state.openNum > 0 && this.state.status === 0){
+        if(this.state.openNum > 0 && this.state.status === "playing"){
             this.setState({time: this.state.time + 1});
         }
     }
     judge() {
         if(this.state.mineNum + this.state.openNum >= this.state.rowNum * this.state.rowNum){
-            this.setState({status: 1});
-            alert("Congratulations!!");
+            this.setState({status: "clear"});
         }
     }
     gameOver() {
-        this.setState({status: 2});
-        alert("Game Over!");
+        this.setState({status: "gameover"});
     }
     checkFlagNum(update) {
         this.setState({flagNum: this.state.flagNum + update});
@@ -69,13 +67,13 @@ export default class MineSweeper extends React.Component {
         });
     }
     setEasy() {
-        this.setState({level: "easy", mineNum: 10, rowNum: 10, openNum: 0, flagNum: 0, time: 0, status: 0});
+        this.setState({level: "easy", mineNum: 10, rowNum: 10, openNum: 0, flagNum: 0, time: 0, status: "playing"});
     }
     setNormal() {
-        this.setState({level: "normal", mineNum: 40, rowNum: 16, openNum: 0, flagNum: 0, time: 0, status: 0});
+        this.setState({level: "normal", mineNum: 40, rowNum: 16, openNum: 0, flagNum: 0, time: 0, status: "playing"});
     }
     setHard() {
-        this.setState({level: "hard", mineNum: 100, rowNum: 22, openNum: 0, flagNum: 0, time: 0, status: 0});
+        this.setState({level: "hard", mineNum: 100, rowNum: 22, openNum: 0, flagNum: 0, time: 0, status: "playing"});
     }
     render() {
         var _this = this;
@@ -111,6 +109,9 @@ export default class MineSweeper extends React.Component {
                 {level}
                 <div className={"MineSweeper " + this.state.level}>
                     <span className="MineSweeper__flagNum"> {this.state.mineNum - this.state.flagNum}</span>
+                    <span className="MineSweeper__face">
+                        <span className={"button " + this.state.status}></span>
+                    </span>
                     <span className="MineSweeper__time"> {this.state.time}</span>
                     <Table mineNum={this.state.mineNum} rowNum={this.state.rowNum} gameOver={this.gameOver.bind(this)} addOpenNum={this.addOpenNum.bind(this)} checkFlagNum={this.checkFlagNum.bind(this)}/>
                 </div>

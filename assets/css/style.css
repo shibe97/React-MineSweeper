@@ -130,6 +130,26 @@ embed {
     top: 10px;
     background: url("../images/icn_clock_01.png") no-repeat left center;
     padding-left: 30px; }
+  .MineSweeper__face {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    margin-left: -17px;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #bbb; }
+    .MineSweeper__face .button {
+      border-width: 1px;
+      border-style: solid;
+      border-color: #fff #999 #999 #fff;
+      height: 100%;
+      display: block; }
+    .MineSweeper__face .normal {
+      background: url("../images/icn_face_01.png") no-repeat center center, #ccc; }
+    .MineSweeper__face .clear {
+      background: url("../images/icn_face_02.png") no-repeat center center, #ccc; }
+    .MineSweeper__face .gameover {
+      background: url("../images/icn_face_03.png") no-repeat center center, #ccc; }
 
 .Table {
   border: 1px solid #ccc;
