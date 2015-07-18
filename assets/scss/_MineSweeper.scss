@@ -17,10 +17,13 @@
 
     &__level {
         text-align: center;
-        margin: 10px;
+        padding: 10px;
 
         label {
             margin: 0 10px;
+        }
+        input[type=radio] {
+            margin-right: 5px;
         }
     }
     &__flagNum {
@@ -28,7 +31,7 @@
         right: 10px;
         top: 10px;
         background: url("../images/icn_flag_01.png") no-repeat left center;
-        padding-left: 30px;
+        padding-left: 25px;
     }
     &__time {
         position: absolute;

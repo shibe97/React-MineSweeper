@@ -113,15 +113,17 @@ embed {
     width: 660px; }
   .MineSweeper__level {
     text-align: center;
-    margin: 10px; }
+    padding: 10px; }
     .MineSweeper__level label {
       margin: 0 10px; }
+    .MineSweeper__level input[type=radio] {
+      margin-right: 5px; }
   .MineSweeper__flagNum {
     position: absolute;
     right: 10px;
     top: 10px;
     background: url("../images/icn_flag_01.png") no-repeat left center;
-    padding-left: 30px; }
+    padding-left: 25px; }
   .MineSweeper__time {
     position: absolute;
     left: 10px;

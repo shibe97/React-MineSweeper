@@ -69,22 +69,46 @@ export default class MineSweeper extends React.Component {
         });
     }
     setEasy() {
-        this.setState({level: "easy", mineNum: 10, rowNum: 10, openNum: 0, flagNum: 0, time: 0});
+        this.setState({level: "easy", mineNum: 10, rowNum: 10, openNum: 0, flagNum: 0, time: 0, status: 0});
     }
     setNormal() {
-        this.setState({level: "normal", mineNum: 40, rowNum: 16, openNum: 0, flagNum: 0, time: 0});
+        this.setState({level: "normal", mineNum: 40, rowNum: 16, openNum: 0, flagNum: 0, time: 0, status: 0});
     }
     setHard() {
-        this.setState({level: "hard", mineNum: 100, rowNum: 22, openNum: 0, flagNum: 0, time: 0});
+        this.setState({level: "hard", mineNum: 100, rowNum: 22, openNum: 0, flagNum: 0, time: 0, status: 0});
     }
     render() {
+        var _this = this;
+        var level = () => {
+            if(_this.state.level === "easy"){
+                return (
+                    <div className="MineSweeper__level">
+                        <label><input type="radio" name="level" onChange={this.setEasy.bind(this)} checked />easy</label>
+                        <label><input type="radio" name="level" onChange={this.setNormal.bind(this)} />normal</label>
+                        <label><input type="radio" name="level" onChange={this.setHard.bind(this)} />hard</label>
+                    </div>
+                );
+            } else if(_this.state.level === "normal"){
+                return (
+                    <div className="MineSweeper__level">
+                        <label><input type="radio" name="level" onChange={this.setEasy.bind(this)} />easy</label>
+                        <label><input type="radio" name="level" onChange={this.setNormal.bind(this)} checked />normal</label>
+                        <label><input type="radio" name="level" onChange={this.setHard.bind(this)} />hard</label>
+                    </div>
+                );
+            } else if(_this.state.level === "hard"){
+                return (
+                    <div className="MineSweeper__level">
+                        <label><input type="radio" name="level" onChange={this.setEasy.bind(this)} />easy</label>
+                        <label><input type="radio" name="level" onChange={this.setNormal.bind(this)} />normal</label>
+                        <label><input type="radio" name="level" onChange={this.setHard.bind(this)} checked />hard</label>
+                    </div>
+                );
+            }
+        }();
         return (
             <div>
-                <div className="MineSweeper__level">
-                    <label><input type="radio" name="level" onChange={this.setEasy.bind(this)} />easy</label>
-                    <label><input type="radio" name="level" onChange={this.setNormal.bind(this)} />normal</label>
-                    <label><input type="radio" name="level" onChange={this.setHard.bind(this)} />hard</label>
-                </div>
+                {level}
                 <div className={"MineSweeper " + this.state.level}>
                     <span className="MineSweeper__flagNum"> {this.state.mineNum - this.state.flagNum}</span>
                     <span className="MineSweeper__time"> {this.state.time}</span>
