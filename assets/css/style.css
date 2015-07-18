@@ -114,7 +114,7 @@ embed {
     margin: 10px; }
     .MineSweeper__level label {
       margin: 0 10px; }
-  .MineSweeper__openNum {
+  .MineSweeper__flagNum {
     position: absolute;
     right: 10px;
     top: 10px;

@@ -50,6 +50,10 @@ export default class Table extends React.Component {
         _rows[cell.y][cell.x].isOpened = true;
         _rows[cell.y][cell.x].count = cell.hasMine ? "b" : num;
         this.setState({rows : _rows});
+        if(_rows[cell.y][cell.x].hasFlag){
+            _rows[cell.y][cell.x].hasFlag = false;
+            this.props.checkFlagNum(-1);
+        }
         if(!cell.hasMine && num === 0){
             this.openAround(cell);
         }
@@ -59,8 +63,10 @@ export default class Table extends React.Component {
     }
     mark(cell) {
         var _rows = this.state.rows;
-        _rows[cell.y][cell.x].hasFlag = !_rows[cell.y][cell.x].hasFlag;
+        var _cell = _rows[cell.y][cell.x];
+        _cell.hasFlag = !_cell.hasFlag;
         this.setState({rows : _rows});
+        this.props.checkFlagNum(_cell.hasFlag ? 1 : -1);
     }
     countMines(cell) {
         var aroundMinesNum = 0;

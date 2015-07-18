@@ -23,7 +23,9 @@ export default class Cell extends React.Component {
     }
     mark(e) {
         e.preventDefault();
-        this.props.mark(this.props.cell);
+        if(!this.state.isOpened){
+            this.props.mark(this.props.cell);
+        }
     }
     render() {
         var _this = this;

@@ -46,6 +46,9 @@ export default class MineSweeper extends React.Component {
         this.setState({status: 2});
         alert("Game Over!");
     }
+    checkFlagNum(update) {
+        this.setState({flagNum: this.state.flagNum + update});
+    }
     setMine(){
         var mineTable = this.state.mineTable;
         for(var i = 0; i < this.state.mineNum; i++){
@@ -83,9 +86,9 @@ export default class MineSweeper extends React.Component {
                     <label><input type="radio" name="level" onChange={this.setHard.bind(this)} />hard</label>
                 </div>
                 <div className={"MineSweeper " + this.state.level}>
-                    <span className="MineSweeper__openNum"> {this.state.openNum}</span>
+                    <span className="MineSweeper__flagNum"> {this.state.mineNum - this.state.flagNum}</span>
                     <span className="MineSweeper__time"> {this.state.time}</span>
-                    <Table mineNum={this.state.mineNum} rowNum={this.state.rowNum} gameOver={this.gameOver.bind(this)} addOpenNum={this.addOpenNum.bind(this)}/>
+                    <Table mineNum={this.state.mineNum} rowNum={this.state.rowNum} gameOver={this.gameOver.bind(this)} addOpenNum={this.addOpenNum.bind(this)} checkFlagNum={this.checkFlagNum.bind(this)}/>
                 </div>
             </div>
         );
