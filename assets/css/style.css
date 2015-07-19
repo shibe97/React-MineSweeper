@@ -110,7 +110,7 @@ embed {
   .MineSweeper.normal {
     width: 490px; }
   .MineSweeper.hard {
-    width: 660px; }
+    width: 900px; }
   .MineSweeper__level {
     text-align: center;
     padding: 10px; }
@@ -144,7 +144,7 @@ embed {
       border-color: #fff #999 #999 #fff;
       height: 100%;
       display: block; }
-    .MineSweeper__face .normal {
+    .MineSweeper__face .playing {
       background: url("../images/icn_face_01.png") no-repeat center center, #ccc; }
     .MineSweeper__face .clear {
       background: url("../images/icn_face_02.png") no-repeat center center, #ccc; }

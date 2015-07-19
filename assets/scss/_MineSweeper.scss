@@ -12,7 +12,7 @@
         width: 490px;
     }
     &.hard {
-        width: 660px;
+        width: 900px;
     }
 
     &__level {
@@ -56,7 +56,7 @@
             height: 100%;
             display: block;
         }
-        .normal {
+        .playing {
             background: url("../images/icn_face_01.png") no-repeat center center, #ccc;
         }
         .clear {
