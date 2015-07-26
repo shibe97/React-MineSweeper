@@ -31,7 +31,6 @@ export default class Table extends React.Component {
                 });
             }
         }
-        console.log(props.colNum);
         for(var i = 0; i < props.mineNum; i++){
             var cell = mineTable[Math.floor(Math.random()*props.rowNum)][Math.floor(Math.random()*props.colNum)];
             if(cell.hasMine){

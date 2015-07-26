@@ -23,12 +23,6 @@ export default class MineSweeper extends React.Component {
     componentWillMount() {
         this.intervals = [];
     }
-    componentWillUnmount() {
-        this.intervals.map(clearInterval);
-    }
-    componentDidMount() {
-        this.setInterval(this.tick.bind(this), 1000);
-    }
     setInterval() {
         this.intervals.push(setInterval.apply(null, arguments));
     }
@@ -63,20 +57,27 @@ export default class MineSweeper extends React.Component {
         });
     }
     addOpenNum() {
+        if(this.state.openNum === 0){
+            this.setInterval(this.tick.bind(this), 1000);
+        }
         this.setState({
             openNum : ++ this.state.openNum
         });
     }
     reset() {
+        this.intervals.map(clearInterval);
         this.setState({openNum: 0, flagNum: 0, time: 0, status: "playing"});
     }
     setEasy() {
+        this.intervals.map(clearInterval);
         this.setState({level: "easy", mineNum: 10, rowNum: 9, colNum: 9, openNum: 0, flagNum: 0, time: 0, status: "playing"});
     }
     setNormal() {
+        this.intervals.map(clearInterval);
         this.setState({level: "normal", mineNum: 40, rowNum: 16, colNum: 16, openNum: 0, flagNum: 0, time: 0, status: "playing"});
     }
     setHard() {
+        this.intervals.map(clearInterval);
         this.setState({level: "hard", mineNum: 100, rowNum: 16, colNum: 30, openNum: 0, flagNum: 0, time: 0, status: "playing"});
     }
     render() {
