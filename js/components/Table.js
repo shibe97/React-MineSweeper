@@ -92,7 +92,7 @@ export default class Table extends React.Component {
     render() {
         var Rows = this.state.rows.map((row, index) => {
             return(
-                <Row cells={row} open={this.open.bind(this)} mark={this.mark.bind(this)} countMines={this.countMines.bind(this)} openAround={this.openAround.bind(this)} />
+                <Row cells={row} open={this.open.bind(this)} mark={this.mark.bind(this)} />
             );
         });
         return(
